@@ -15,9 +15,10 @@ public class Main {
   public static void main(String[] args) {
 
     MealCalendarBuilder mcb = new MealCalendarBuilder();
-    HashMap<String,String> paramMap = new HashMap<String,String>();
+    HashMap<String, String> paramMap = new HashMap<String, String>();
     paramMap.put("calendarMonth", "6");
     paramMap.put("calendarYear", "2021");
+    paramMap.put("duplicatesAllowed", "false");
     MealCalendar calendar = mcb.build(paramMap);
 
     for (int i = 0; i < calendar.getMonthDetails().getNumWeeks(); i++) {
