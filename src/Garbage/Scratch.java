@@ -9,7 +9,6 @@ import java.time.MonthDay;
 public class Scratch {
 
 
-
   public static void main(String[] args) {
     LocalDate date = LocalDate.of(2021, 6, 18);
     int month = date.getMonthValue();
@@ -34,15 +33,16 @@ public class Scratch {
       String weekLine = "";
       for (int j = 0; j < 7; j++) {
         int curDay = calendarArr[i][j];
-        if (!(i > 0 && calendarArr[i][0] == 0))
-        if (curDay > 0) {
-          if (curDay < 10) {
-            weekLine += "[0" + curDay + "]";
+        if (!(i > 0 && calendarArr[i][0] == 0)) {
+          if (curDay > 0) {
+            if (curDay < 10) {
+              weekLine += "[0" + curDay + "]";
+            } else {
+              weekLine += "[" + curDay + "]";
+            }
           } else {
-            weekLine += "[" + curDay + "]";
+            weekLine += "[  ]";
           }
-        } else {
-          weekLine += "[  ]";
         }
       }
       System.out.println(weekLine);

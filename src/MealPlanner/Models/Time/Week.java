@@ -36,27 +36,28 @@ public class Week {
 
     for (int i = 0; i < 7; i++) {
       Day day = DayUtil.daySwitch(i);
-      String mealString = "No Meal Planned";
+      String mealString = "";
       if (meals[i] != null) {
         Meal meal = meals[i];
         mealString = meal.toString();
         String ingredientString = "";
         List<String> ingredients = meal.getMain().getIngredients();
-        for(String ingredient : ingredients) {
+        for (String ingredient : ingredients) {
           ingredientString += ingredient;
           if (ingredients.size() - 2 == ingredients.indexOf(ingredient)) {
             ingredientString += ", ";
           }
         }
-        if(!ingredientString.equals("")) {
+        if (!ingredientString.equals("")) {
           mealString += " - " + ingredientString;
         }
+      } else {
+        continue;
       }
       String singleDay =
           DayUtil.dayString(day) + ": " + mealString;
       weekString += singleDay + "\n";
     }
-
     return weekString;
   }
 }
