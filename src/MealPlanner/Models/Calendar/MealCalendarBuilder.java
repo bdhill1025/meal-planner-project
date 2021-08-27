@@ -80,7 +80,7 @@ public class MealCalendarBuilder {
 
     for (int i = 0 + startDay; i < lastDay; i++) {
       int r = -1;
-      Random rand = new Random();
+      Random rand = randomHandler(paramMap);
       if (paramMap.containsKey("duplicatesAllowed") &&
           !Boolean.parseBoolean(paramMap.get("duplicatesAllowed"))) {
         int curSize = set.size();
@@ -100,5 +100,14 @@ public class MealCalendarBuilder {
       }
     }
     return new Week(meals);
+  }
+
+  private Random randomHandler(Map<String, String> paramMap) {
+    Random rand = new Random();
+    if (paramMap.containsKey("testSeed")){
+      int randSeed = Integer.decode(paramMap.get("testSeed"));
+      rand = new Random(randSeed);
+    }
+    return rand;
   }
 }
