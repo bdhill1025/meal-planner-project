@@ -3,10 +3,10 @@ package MealPlanner.Models.Calendar;
 import MealPlanner.Models.Meal;
 import MealPlanner.Models.Time.Week;
 import MealPlanner.StoredMeals;
+import MealPlanner.Views.TextViewV1;
 import java.time.Month;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -14,57 +14,78 @@ import java.util.Set;
 
 public class MealCalendarBuilder {
 
-  public MealCalendar build(Map<String, String> paramMap) throws IllegalArgumentException {
-    MealCalendar mealCalendar = new MealCalendar();
+  public YearMealCalendar buildYear(Map<String, String> paramMap) {
+    YearMealCalendar yearMealCalendar = new YearMealCalendar();
+    MonthMealCalendar[] months = new MonthMealCalendar[12];
+    if (paramMap.containsKey("calendarYear")) {
+      int year = Integer.decode(paramMap.get("calendarYear"));
+      yearMealCalendar.setYear(year);
+    } else {
+      throw new IllegalArgumentException("A Meal Calendar must have a Year.");
+    }
+
+    for (int j = 1; j < 13; j++) {
+      paramMap.put("calendarMonth", String.valueOf(j));
+      MonthMealCalendar month = buildMonth(paramMap);
+      months[j - 1] = month;
+    }
+    yearMealCalendar.setMonths(months);
+
+    return yearMealCalendar;
+  }
+
+  public MonthMealCalendar buildMonth(Map<String, String> paramMap) throws IllegalArgumentException {
+    MonthMealCalendar monthMealCalendar = new MonthMealCalendar();
 
     if (paramMap.containsKey("calendarMonth")) {
       int monthNum = Integer.decode(paramMap.get("calendarMonth"));
-      mealCalendar.setMonth(Month.of(monthNum));
+      monthMealCalendar.setMonth(Month.of(monthNum));
     } else {
       throw new IllegalArgumentException("A Meal Calendar must have a Month.");
     }
 
     if (paramMap.containsKey("calendarYear")) {
       int year = Integer.decode(paramMap.get("calendarYear"));
-      mealCalendar.setYear(year);
+      monthMealCalendar.setYear(year);
     } else {
       throw new IllegalArgumentException("A Meal Calendar must have a Year.");
     }
 
     if (paramMap.containsKey("calendarName")) {
-      mealCalendar.setName(paramMap.get("calendarName"));
+      monthMealCalendar.setName(paramMap.get("calendarName"));
     }
 
-    MonthDetails monthDetails = new MonthDetails(mealCalendar.getMonth().getValue(),
-        mealCalendar.getYear());
-    mealCalendar.setMonthDetails(monthDetails);
+    MonthDetails monthDetails = new MonthDetails(monthMealCalendar.getMonth().getValue(),
+        monthMealCalendar.getYear());
+    monthMealCalendar.setMonthDetails(monthDetails);
+    Integer[][] dateArr = generateDates(monthDetails);
 
     Week[] weeks = new Week[6];
     for (int i = 0; i < monthDetails.getNumWeeks(); i++) {
       Week newWeek;
       if (i == 0) {
-        newWeek = buildWeek(paramMap, monthDetails.getMonthStartDay());
+        newWeek = buildWeek(paramMap, dateArr[i], monthDetails.getMonthStartDay());
       } else if (i == monthDetails.getNumWeeks() - 1) {
         int buffer = monthDetails.getMonthEndDay() - 6;
-        newWeek = buildWeek(paramMap, buffer);
+        newWeek = buildWeek(paramMap, dateArr[i], buffer);
       } else {
-        newWeek = buildWeek(paramMap);
+        newWeek = buildWeek(paramMap, dateArr[i]);
       }
 
       weeks[i] = newWeek;
     }
-    mealCalendar.setWeeks(weeks);
+    monthMealCalendar.setWeeks(weeks);
 
-    return mealCalendar;
+    return monthMealCalendar;
   }
 
-  private Week buildWeek(Map<String, String> paramMap) throws RuntimeException {
-    return buildWeek(paramMap, 0);
+  private Week buildWeek(Map<String, String> paramMap, Integer[] dates) throws RuntimeException {
+    return buildWeek(paramMap, dates, 0);
   }
 
-  private Week buildWeek(Map<String, String> paramMap, int buffer) throws RuntimeException {
+  private Week buildWeek(Map<String, String> paramMap, Integer[] dates, int buffer) throws RuntimeException {
     Meal[] meals = new Meal[7];
-    List<Meal> myMeals = StoredMeals.testList;
+    List<Meal> myMeals = StoredMeals.mealList776;
 
     int startDay, lastDay;
     startDay = 0;
@@ -99,7 +120,9 @@ public class MealCalendarBuilder {
         throw new RuntimeException("Something went wrong while generating a week.");
       }
     }
-    return new Week(meals);
+    Week week = new Week(meals);
+    week.setDates(dates);
+    return week;
   }
 
   private Random randomHandler(Map<String, String> paramMap) {
@@ -109,5 +132,20 @@ public class MealCalendarBuilder {
       rand = new Random(randSeed);
     }
     return rand;
+  }
+
+  private Integer[][] generateDates(MonthDetails monthDetails) {
+
+    Integer[][] dateArr = new Integer[6][7];
+
+    for (int i = 0; i < 6; i++) {
+      for (int j = 0; j < 7; j++) {
+        int curDay = ((i * 7) + j + 1) - monthDetails.getMonthStartDay();
+        if (curDay <= monthDetails.getNumDays() && curDay > 0) {
+          dateArr[i][j] = curDay;
+        }
+      }
+    }
+    return dateArr;
   }
 }

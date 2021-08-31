@@ -18,7 +18,7 @@ public class StoredMeals {
     }
   });
 
-  public static final ArrayList<Meal> testList = new ArrayList<Meal>() {
+  public static final ArrayList<Meal> mealList776 = new ArrayList<Meal>() {
     {
       add(new Meal("Feta Pasta"));
       add(new Meal("Chicken Parm"));
@@ -36,7 +36,7 @@ public class StoredMeals {
       add(new Meal("Turkey Sliders"));
       add(new Meal("Pasta w/ Vodka Sauce"));
       add(new Meal("Taco Tuesday"));
-      add(new Meal("Marinaded Chicken"));
+      add(new Meal("Marinated Chicken"));
       add(new Meal("Chicken Tika Masala"));
       add(new Meal("Falafel"));
       add(new Meal("Pizza"));
@@ -48,32 +48,22 @@ public class StoredMeals {
       add(new Meal("Lemon Pasta"));
       add(new Meal("Wingz Over"));
       add(new Meal("Good Eatz"));
+      add(new Meal("Bankok Pinto"));
+      add(new Meal("Blaze Pizza"));
     }
   };
 
-  public static final ArrayList<Meal> mealList776 = new ArrayList<Meal>() {
+  public static final ArrayList<Meal> mealListFastFood = new ArrayList<Meal>() {
     {
-      add(new Meal("Chicken Marsala"));
-      add(new Meal("Lasagna"));
-      add(new Meal("Ravioli Sage Butter Sausage"));
-      add(new Meal(""));
+      add(new Meal("Popeyes"));
+      add(new Meal("McDonald's"));
+      add(new Meal("Crispy Dicks"));
+      add(new Meal("Chipotle"));
+      add(new Meal("Boston Schwarma"));
+      add(new Meal("Wingz Over"));
+      add(new Meal("Good Eatz"));
+      add(new Meal("Bankok Pinto"));
+      add(new Meal("Blaze Pizza"));
     }
   };
-
-  Meal meal1 = new Meal("Feta Pasta");
-  Meal meal2 = new Meal("Chicken Parm");
-  Meal meal3 = new Meal("Burgers");
-  Meal meal4 = new Meal("Baked Salmon");
-  Meal meal5 = new Meal("Sesame Garlic Tofu");
-  Meal meal6 = new Meal("Chicken Picata");
-  Meal meal7 = new Meal("Mushroom Pasta");
-  Meal meal8 = new Meal("Chicken Quesadillas");
-  Meal meal9 = new Meal("Peanut Sauce Noodles");
-  Meal meal10 = new Meal("Pork Meal");
-  Meal meal11 = new Meal("Lamb Meal");
-  Meal meal12 = new Meal("Veggie Meal");
-  Meal meal13 = new Meal("Sandwich Meal");
-  Meal meal14 = new Meal("Pizza Meal");
-  Meal meal15 = new Meal("Potato Meal");
-  Meal meal16 = new Meal("Burrito Meal");
 }
