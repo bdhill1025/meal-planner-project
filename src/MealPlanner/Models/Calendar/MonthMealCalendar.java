@@ -1,12 +1,10 @@
 package MealPlanner.Models.Calendar;
 
-import MealPlanner.Models.Time.Week;
 import java.time.Month;
-import java.time.Year;
 
 public class MonthMealCalendar {
 
-  private Week[] weeks;
+  private WeekMealCalendar[] weeks;
   private Month month;
   private Integer year;
   private String name;
@@ -15,21 +13,21 @@ public class MonthMealCalendar {
 
   public MonthMealCalendar() {
     this.name = "Default";
-    this.weeks = new Week[6];
+    this.weeks = new WeekMealCalendar[6];
     this.month = null;
     this.year = null;
     this.monthDetails = null;
   }
 
-  public Week[] getWeeks() {
+  public WeekMealCalendar[] getWeeks() {
     return weeks;
   }
 
-  public void setWeeks(Week[] weeks) {
+  public void setWeeks(WeekMealCalendar[] weeks) {
     this.weeks = weeks;
   }
 
-  public Week getWeek(int index) throws IndexOutOfBoundsException {
+  public WeekMealCalendar getWeek(int index) throws IndexOutOfBoundsException {
     if (index >= monthDetails.getNumWeeks() || index < 0) {
       throw new IndexOutOfBoundsException("This Meal Calendar doesn't "
           + "contain a week at index " + index + " .");

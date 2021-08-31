@@ -1,11 +1,8 @@
 package MealPlanner.Models.Calendar;
 
 import MealPlanner.Models.Meal;
-import MealPlanner.Models.Time.Week;
 import MealPlanner.StoredMeals;
-import MealPlanner.Views.TextViewV1;
 import java.time.Month;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -61,9 +58,9 @@ public class MealCalendarBuilder {
     monthMealCalendar.setMonthDetails(monthDetails);
     Integer[][] dateArr = generateDates(monthDetails);
 
-    Week[] weeks = new Week[6];
+    WeekMealCalendar[] weeks = new WeekMealCalendar[6];
     for (int i = 0; i < monthDetails.getNumWeeks(); i++) {
-      Week newWeek;
+      WeekMealCalendar newWeek;
       if (i == 0) {
         newWeek = buildWeek(paramMap, dateArr[i], monthDetails.getMonthStartDay());
       } else if (i == monthDetails.getNumWeeks() - 1) {
@@ -80,11 +77,11 @@ public class MealCalendarBuilder {
     return monthMealCalendar;
   }
 
-  private Week buildWeek(Map<String, String> paramMap, Integer[] dates) throws RuntimeException {
+  private WeekMealCalendar buildWeek(Map<String, String> paramMap, Integer[] dates) throws RuntimeException {
     return buildWeek(paramMap, dates, 0);
   }
 
-  private Week buildWeek(Map<String, String> paramMap, Integer[] dates, int buffer)
+  private WeekMealCalendar buildWeek(Map<String, String> paramMap, Integer[] dates, int buffer)
       throws RuntimeException {
     Meal[] meals = new Meal[7];
     List<Meal> myMeals = StoredMeals.mealList776;
@@ -122,7 +119,7 @@ public class MealCalendarBuilder {
         throw new RuntimeException("Something went wrong while generating a week.");
       }
     }
-    Week week = new Week(meals);
+    WeekMealCalendar week = new WeekMealCalendar(meals);
     week.setDates(dates);
     return week;
   }
