@@ -1,8 +1,10 @@
 package MealPlanner.Models.Calendar;
 
+import MealPlanner.Models.Time.MonthDetails;
 import java.time.Month;
+import java.time.Year;
 
-public class MonthMealCalendar {
+public class MonthMealCalendar implements MealCalendar{
 
   private WeekMealCalendar[] weeks;
   private Month month;
@@ -65,5 +67,10 @@ public class MonthMealCalendar {
 
   public void setMonthDetails(MonthDetails monthDetails) {
     this.monthDetails = monthDetails;
+  }
+
+  @Override
+  public Integer length() {
+    return Month.of(month.getValue()).length(Year.of(year).isLeap());
   }
 }

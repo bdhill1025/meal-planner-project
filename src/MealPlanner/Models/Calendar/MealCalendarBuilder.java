@@ -1,6 +1,7 @@
 package MealPlanner.Models.Calendar;
 
 import MealPlanner.Models.Meal;
+import MealPlanner.Models.Time.MonthDetails;
 import MealPlanner.StoredMeals;
 import java.time.Month;
 import java.util.HashSet;

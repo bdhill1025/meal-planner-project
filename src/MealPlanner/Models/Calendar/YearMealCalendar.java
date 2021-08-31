@@ -1,9 +1,10 @@
 package MealPlanner.Models.Calendar;
 
 import MealPlanner.Views.TextViewV1;
+import java.time.Year;
 import java.util.HashMap;
 
-public class YearMealCalendar {
+public class YearMealCalendar implements MealCalendar{
 
   Integer year;
   MonthMealCalendar[] months;
@@ -25,5 +26,10 @@ public class YearMealCalendar {
 
   public void setMonths(MonthMealCalendar[] months) {
     this.months = months;
+  }
+
+  @Override
+  public Integer length() {
+    return Year.of(year).length();
   }
 }

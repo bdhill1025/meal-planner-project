@@ -5,7 +5,7 @@ import MealPlanner.Utils.DayUtil;
 import MealPlanner.Utils.DayUtil.Day;
 import java.util.List;
 
-public class WeekMealCalendar {
+public class WeekMealCalendar implements MealCalendar{
 
   private Meal[] meals;
   private Integer[] dates;
@@ -76,5 +76,15 @@ public class WeekMealCalendar {
       weekString += singleDay + "\n";
     }
     return weekString;
+  }
+
+  public Integer length() {
+    int count = 0;
+    for (int i = 0; i < 7; i++) {
+      if (meals[i] != null) {
+        count++;
+      }
+    }
+    return count;
   }
 }
