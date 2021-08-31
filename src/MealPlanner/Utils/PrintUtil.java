@@ -26,16 +26,6 @@ public class PrintUtil {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-
-    try {
-      File openFile = new File(filePath);
-      Desktop desktop = Desktop.getDesktop();
-      desktop.open(openFile);
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 
   public static void appendStringToFile(String stringToAppend, String filePath) {
@@ -44,16 +34,6 @@ public class PrintUtil {
       out.append(stringToAppend);
       out.close();
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    }
-
-    try {
-      File openFile = new File(filePath);
-      Desktop desktop = Desktop.getDesktop();
-      desktop.open(openFile);
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
       e.printStackTrace();
     }
   }
