@@ -18,52 +18,52 @@ public class StoredMeals {
     }
   });
 
-  public static final ArrayList<Meal> testList = new ArrayList<Meal>() {
+  public static final ArrayList<Meal> mealList776 = new ArrayList<Meal>() {
     {
-      add(new Meal("Steak Meal"));
-      add(new Meal("Pasta Meal"));
-      add(new Meal("Taco Meal"));
-      add(new Meal("Chicken Meal"));
-      add(new Meal("Salmon Meal"));
-      add(new Meal("Haddock Meal"));
-      add(new Meal("Indian Meal"));
-      add(new Meal("Burger Meal"));
-      add(new Meal("Hot Dog Meal"));
-      add(new Meal("Pork Meal"));
-      add(new Meal("Lamb Meal"));
-      add(new Meal("Veggie Meal"));
-      add(new Meal("Sandwich Meal"));
-      add(new Meal("Pizza Meal"));
-      add(new Meal("Potato Meal"));
-      add(new Meal("Burrito Meal"));
-      add(new Meal("Tofu Meal"));
-      add(new Meal("Egg Meal"));
-      add(new Meal("Pancake Meal"));
-      add(new Meal("Waffle Meal"));
-      add(new Meal("Bacon Meal"));
-      add(new Meal("Veal Meal"));
-      add(new Meal("Rice Meal"));
-      add(new Meal("Avocado Meal"));
-      add(new Meal("Chinese Meal"));
-      add(new Meal("Korean Meal"));
-      add(new Meal("Japanese Meal"));
+      add(new Meal("Feta Pasta"));
+      add(new Meal("Chicken Parm"));
+      add(new Meal("Burgers"));
+      add(new Meal("Baked Salmon"));
+      add(new Meal("Sesame Garlic Tofu"));
+      add(new Meal("Chicken Picata"));
+      add(new Meal("Mushroom Pasta"));
+      add(new Meal("Chicken Quesadillas"));
+      add(new Meal("Peanut Sauce Noodles"));
+      add(new Meal("Roasted Chicken"));
+      add(new Meal("Cajan Mac-N-Cheese"));
+      add(new Meal("Fried Rice w/ Orange Chicken"));
+      add(new Meal("Baked Ziti"));
+      add(new Meal("Turkey Sliders"));
+      add(new Meal("Pasta w/ Vodka Sauce"));
+      add(new Meal("Taco Tuesday"));
+      add(new Meal("Marinated Chicken"));
+      add(new Meal("Chicken Tika Masala"));
+      add(new Meal("Falafel"));
+      add(new Meal("Pizza"));
+      add(new Meal("Glizzies"));
+      add(new Meal("Chicken Pesto Pasta"));
+      add(new Meal("Chicken Burrito"));
+      add(new Meal("Chicken Wraps"));
+      add(new Meal("Chicken Alfredo"));
+      add(new Meal("Lemon Pasta"));
+      add(new Meal("Wingz Over"));
+      add(new Meal("Good Eatz"));
+      add(new Meal("Bankok Pinto"));
+      add(new Meal("Blaze Pizza"));
     }
   };
 
-  Meal meal1 = new Meal("Steak Meal");
-  Meal meal2 = new Meal("Pasta Meal");
-  Meal meal3 = new Meal("Taco Meal");
-  Meal meal4 = new Meal("Chicken Meal");
-  Meal meal5 = new Meal("Salmon Meal");
-  Meal meal6 = new Meal("Haddock Meal");
-  Meal meal7 = new Meal("Indian Meal");
-  Meal meal8 = new Meal("Burger Meal");
-  Meal meal9 = new Meal("Hot Dog Meal");
-  Meal meal10 = new Meal("Pork Meal");
-  Meal meal11 = new Meal("Lamb Meal");
-  Meal meal12 = new Meal("Veggie Meal");
-  Meal meal13 = new Meal("Sandwich Meal");
-  Meal meal14 = new Meal("Pizza Meal");
-  Meal meal15 = new Meal("Potato Meal");
-  Meal meal16 = new Meal("Burrito Meal");
+  public static final ArrayList<Meal> mealListFastFood = new ArrayList<Meal>() {
+    {
+      add(new Meal("Popeyes"));
+      add(new Meal("McDonald's"));
+      add(new Meal("Crispy Dicks"));
+      add(new Meal("Chipotle"));
+      add(new Meal("Boston Schwarma"));
+      add(new Meal("Wingz Over"));
+      add(new Meal("Good Eatz"));
+      add(new Meal("Bankok Pinto"));
+      add(new Meal("Blaze Pizza"));
+    }
+  };
 }
