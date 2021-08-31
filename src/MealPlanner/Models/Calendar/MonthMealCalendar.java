@@ -29,7 +29,7 @@ public class MonthMealCalendar {
     this.weeks = weeks;
   }
 
-  public Week getWeek(int index) throws IndexOutOfBoundsException{
+  public Week getWeek(int index) throws IndexOutOfBoundsException {
     if (index >= monthDetails.getNumWeeks() || index < 0) {
       throw new IndexOutOfBoundsException("This Meal Calendar doesn't "
           + "contain a week at index " + index + " .");

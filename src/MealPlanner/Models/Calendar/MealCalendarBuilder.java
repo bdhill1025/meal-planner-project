@@ -34,7 +34,8 @@ public class MealCalendarBuilder {
     return yearMealCalendar;
   }
 
-  public MonthMealCalendar buildMonth(Map<String, String> paramMap) throws IllegalArgumentException {
+  public MonthMealCalendar buildMonth(Map<String, String> paramMap)
+      throws IllegalArgumentException {
     MonthMealCalendar monthMealCalendar = new MonthMealCalendar();
 
     if (paramMap.containsKey("calendarMonth")) {
@@ -83,7 +84,8 @@ public class MealCalendarBuilder {
     return buildWeek(paramMap, dates, 0);
   }
 
-  private Week buildWeek(Map<String, String> paramMap, Integer[] dates, int buffer) throws RuntimeException {
+  private Week buildWeek(Map<String, String> paramMap, Integer[] dates, int buffer)
+      throws RuntimeException {
     Meal[] meals = new Meal[7];
     List<Meal> myMeals = StoredMeals.mealList776;
 
@@ -127,7 +129,7 @@ public class MealCalendarBuilder {
 
   private Random randomHandler(Map<String, String> paramMap) {
     Random rand = new Random();
-    if (paramMap.containsKey("testSeed")){
+    if (paramMap.containsKey("testSeed")) {
       int randSeed = Integer.decode(paramMap.get("testSeed"));
       rand = new Random(randSeed);
     }

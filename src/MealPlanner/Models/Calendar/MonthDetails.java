@@ -26,7 +26,8 @@ public class MonthDetails {
 
     int days = yearMonth.lengthOfMonth();
     int daysWithBuffer = days + this.monthStartDay;
-    this.numWeeks = (int)Math.ceil(daysWithBuffer / 7.0);;
+    this.numWeeks = (int) Math.ceil(daysWithBuffer / 7.0);
+    ;
   }
 
   public Integer getMonthNum() {

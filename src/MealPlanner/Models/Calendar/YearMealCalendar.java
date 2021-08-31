@@ -8,7 +8,8 @@ public class YearMealCalendar {
   Integer year;
   MonthMealCalendar[] months;
 
-  public YearMealCalendar() { }
+  public YearMealCalendar() {
+  }
 
   public Integer getYear() {
     return year;
